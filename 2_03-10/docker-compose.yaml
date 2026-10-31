@@ -1,0 +1,11 @@
+services:
+  frontend:
+    image: daviddean181/frontend
+    command: ["serve", "-s", "build", "-l", "5001"]
+    ports:
+      - 5001:5001
+  backend:
+    image: daviddean181/backend
+    ports:
+       - 8080:8080
+    command: ./server
