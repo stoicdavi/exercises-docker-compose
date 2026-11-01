@@ -6,6 +6,12 @@ services:
       - 5001:5001
   backend:
     image: daviddean181/backend
+    environment:
+      REDIS_HOST: redis
     ports:
        - 8080:8080
     command: ./server
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    command: redis-server --appendonly yes
