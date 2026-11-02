@@ -1,7 +1,6 @@
 services:
   frontend:
     image: daviddean181/frontend
-    command: ["serve", "-s", "build", "-l", "5001"]
     ports:
       - 5001:5001
   backend:
@@ -10,7 +9,6 @@ services:
       REDIS_HOST: redis
     ports:
        - 8080:8080
-    command: ./server
   redis:
     image: redis:7.4-alpine
     restart: unless-stopped
