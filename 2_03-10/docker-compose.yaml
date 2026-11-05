@@ -20,8 +20,6 @@ services:
     image: postgres:18
     restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD:example
+      POSTGRES_PASSWORD: example
     volumes:
-      - database:/var/lib/postgres
-volumes:
-  database:
+      - ./database:/var/lib/postgresql
