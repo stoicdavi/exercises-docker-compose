@@ -1,17 +1,14 @@
 services:
   frontend:
     image: daviddean181/frontend
-    ports:
-      - 5001:5001
   backend:
     image: daviddean181/backend
     environment:
       REDIS_HOST: redis
       POSTGRES_HOST: db
       POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
       
-    ports:
-       - 8080:8080
   redis:
     image: redis:7.4-alpine
     restart: unless-stopped
@@ -21,6 +18,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
+
     volumes:
       - ./database:/var/lib/postgresql
   nginx:
@@ -28,6 +27,9 @@ services:
     depends_on:
       - backend
       - frontend
+    environment:
+      POSTGRES_USER: example
+      POSTGRES_PASSWORD: example
     ports:
       - 8000:80
     volumes:
