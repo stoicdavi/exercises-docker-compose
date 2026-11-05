@@ -7,9 +7,21 @@ services:
     image: daviddean181/backend
     environment:
       REDIS_HOST: redis
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: example
+      
     ports:
        - 8080:8080
   redis:
     image: redis:7.4-alpine
     restart: unless-stopped
     command: redis-server --appendonly yes
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD:example
+    volumes:
+      - database:/var/lib/postgres
+volumes:
+  database:
