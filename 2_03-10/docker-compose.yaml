@@ -1,8 +1,6 @@
 services:
   frontend:
     image: daviddean181/frontend
-    ports:
-      - 5001:5001
   backend:
     image: daviddean181/backend
     environment:
@@ -11,8 +9,6 @@ services:
       POSTGRES_PASSWORD: example
       POSTGRES_USER: example
       REQUEST_ORIGIN: http://localhost:8000
-    ports:
-    - 8080:8080
      
       
   redis:
