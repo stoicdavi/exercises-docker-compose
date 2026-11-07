@@ -10,6 +10,7 @@ services:
       POSTGRES_HOST: db
       POSTGRES_PASSWORD: example
       POSTGRES_USER: example
+      REQUEST_ORIGIN: http://localhost:8000
     ports:
     - 8080:8080
      
