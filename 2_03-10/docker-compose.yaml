@@ -1,6 +1,8 @@
 services:
   frontend:
     image: daviddean181/frontend
+    ports:
+      - 5001:5001
   backend:
     image: daviddean181/backend
     environment:
@@ -8,6 +10,9 @@ services:
       POSTGRES_HOST: db
       POSTGRES_PASSWORD: example
       POSTGRES_USER: example
+    ports:
+    - 8080:8080
+     
       
   redis:
     image: redis:7.4-alpine
